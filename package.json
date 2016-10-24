@@ -1,0 +1,45 @@
+{
+  "name": "react-express-boilerplate",
+  "version": "1.0.0",
+  "description": "Boilerplate for a React Express app",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --watch",
+    "devserver": "webpack-dev-server --hot --inline",
+    "server": "nodemon ./src/server/server.js",
+    "start": "node ./src/server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amandine-perichon/react-express-boilerplate.git"
+  },
+  "keywords": [
+    "boilerplate"
+  ],
+  "author": "Amandine Perichon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/amandine-perichon/react-express-boilerplate/issues"
+  },
+  "homepage": "https://github.com/amandine-perichon/react-express-boilerplate#readme",
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
+  },
+  "devDependencies": {
+    "babel-core": "^6.18.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "nodemon": "^1.11.0",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
