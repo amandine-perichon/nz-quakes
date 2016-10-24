@@ -1,0 +1,303 @@
+[
+  {
+    "_id": "580dbfcdcba46bbd90567a72",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        166.58707,
+        -45.77025
+      ]
+    },
+    "properties": {
+      "publicid": "3124785",
+      "eventtype": "earthquake",
+      "origintime": "2009-07-15T09:22:29.322Z",
+      "modificationtime": "2013-06-24T17:04:00.000Z",
+      "depth": 12,
+      "depthtype": "operator assigned",
+      "magnitude": 7.8,
+      "magnitudetype": "Mw",
+      "evaluationmethod": "GROPE",
+      "evaluationstatus": "reviewed",
+      "evaluationmode": "manual",
+      "earthmodel": "nz1dr",
+      "usedphasecount": 19,
+      "usedstationcount": 17,
+      "minimumdistance": 0.403,
+      "azimuthalgap": 230,
+      "originerror": 0.15613
+    }
+  },
+  {
+    "_id": "580dbfcdcba46bbd9056bd7a",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        172.16794,
+        -43.52731
+      ]
+    },
+    "properties": {
+      "publicid": "3366146",
+      "eventtype": "earthquake",
+      "origintime": "2010-09-03T16:35:41.836Z",
+      "modificationtime": "2013-07-16T14:04:00.000Z",
+      "depth": 11.0426,
+      "magnitude": 7.2,
+      "magnitudetype": "Mw",
+      "evaluationmethod": "GROPE",
+      "evaluationstatus": "reviewed",
+      "evaluationmode": "manual",
+      "earthmodel": "nz1dr",
+      "usedphasecount": 21,
+      "usedstationcount": 16,
+      "minimumdistance": 0.06,
+      "azimuthalgap": 82,
+      "originerror": 0.14312
+    }
+  },
+  {
+    "_id": "580dbfc2cba46bbd905270a1",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        179.48859,
+        -37.64958
+      ]
+    },
+    "properties": {
+      "publicid": "731516",
+      "eventtype": "earthquake",
+      "origintime": "1995-02-05T22:51:02.305Z",
+      "modificationtime": "2010-01-13T19:16:00.000Z",
+      "depth": 12,
+      "depthtype": "operator assigned",
+      "magnitude": 7.15,
+      "magnitudetype": "Mw",
+      "evaluationmethod": "GROPE",
+      "evaluationstatus": "reviewed",
+      "evaluationmode": "manual",
+      "earthmodel": "nz1dr",
+      "usedphasecount": 51,
+      "usedstationcount": 49,
+      "minimumdistance": 0.944,
+      "azimuthalgap": 284,
+      "originerror": 0.16693
+    }
+  },
+  {
+    "_id": "580dbfc4cba46bbd9053389b",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -177.98146,
+        -32.54943
+      ]
+    },
+    "properties": {
+      "publicid": "1121473",
+      "eventtype": "earthquake",
+      "origintime": "1997-05-03T16:46:01.845Z",
+      "modificationtime": "2010-01-13T20:12:00.000Z",
+      "depth": 135.4866,
+      "magnitude": 7.113,
+      "magnitudetype": "ML",
+      "evaluationmethod": "GROPE",
+      "evaluationstatus": "reviewed",
+      "evaluationmode": "manual",
+      "earthmodel": "nz1dr",
+      "usedphasecount": 20,
+      "usedstationcount": 18,
+      "minimumdistance": 5.887,
+      "azimuthalgap": 319,
+      "magnitudeuncertainty": 0.275,
+      "originerror": 0.18026,
+      "magnitudestationcount": 4
+    }
+  },
+  {
+    "_id": "580dbfc7cba46bbd90544566",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -178.47597,
+        -36.48562
+      ]
+    },
+    "properties": {
+      "publicid": "1780673",
+      "eventtype": "earthquake",
+      "origintime": "2001-08-21T06:51:57.708Z",
+      "modificationtime": "2010-01-13T21:38:00.000Z",
+      "depth": 33,
+      "depthtype": "operator assigned",
+      "magnitude": 7.107,
+      "magnitudetype": "ML",
+      "evaluationmethod": "GROPE",
+      "evaluationstatus": "reviewed",
+      "evaluationmode": "manual",
+      "earthmodel": "nz1dr",
+      "usedphasecount": 32,
+      "usedstationcount": 30,
+      "minimumdistance": 3.494,
+      "azimuthalgap": 315,
+      "magnitudeuncertainty": 0.414,
+      "originerror": 0.23587,
+      "magnitudestationcount": 19
+    }
+  },
+  {
+    "_id": "580dbfc4cba46bbd90533404",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -178.79001,
+        -32.30516
+      ]
+    },
+    "properties": {
+      "publicid": "1133833",
+      "eventtype": "earthquake",
+      "origintime": "1997-05-25T23:22:30.588Z",
+      "modificationtime": "2006-12-14T16:19:00.000Z",
+      "depth": 339.3824,
+      "magnitude": 7.1,
+      "magnitudetype": "Mw",
+      "evaluationmethod": "GROPE",
+      "evaluationstatus": "reviewed",
+      "evaluationmode": "manual",
+      "earthmodel": "nz1dr",
+      "usedphasecount": 25,
+      "usedstationcount": 22,
+      "minimumdistance": 5.796,
+      "azimuthalgap": 318,
+      "originerror": 0.24431
+    }
+  },
+  {
+    "_id": "580dbfc7cba46bbd9054840f",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        166.83005,
+        -45.19286
+      ]
+    },
+    "properties": {
+      "publicid": "2103645",
+      "eventtype": "earthquake",
+      "origintime": "2003-08-21T12:12:49.867Z",
+      "modificationtime": "2010-01-13T22:14:00.000Z",
+      "depth": 24.3452,
+      "magnitude": 7.1,
+      "magnitudetype": "Mw",
+      "evaluationmethod": "GROPE",
+      "evaluationstatus": "reviewed",
+      "evaluationmode": "manual",
+      "earthmodel": "nz1dr",
+      "usedphasecount": 12,
+      "usedstationcount": 10,
+      "minimumdistance": 0.457,
+      "azimuthalgap": 270,
+      "originerror": 0.19164
+    }
+  },
+  {
+    "_id": "580dbfd2cba46bbd90588bf5",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        179.5200195,
+        -36.97947693
+      ]
+    },
+    "properties": {
+      "publicid": "2016p661332",
+      "eventtype": "earthquake",
+      "origintime": "2016-09-01T16:37:55.440Z",
+      "modificationtime": "2016-09-01T18:03:16.334Z",
+      "depth": 21.78820992,
+      "magnitude": 7.079899473,
+      "magnitudetype": "M",
+      "evaluationmethod": "LOCSAT",
+      "evaluationstatus": "confirmed",
+      "evaluationmode": "manual",
+      "earthmodel": "iasp91",
+      "usedphasecount": 87,
+      "usedstationcount": 71,
+      "minimumdistance": 1.12930727,
+      "azimuthalgap": 288.5708466,
+      "originerror": 0.7153160173,
+      "magnitudestationcount": 22
+    }
+  },
+  {
+    "_id": "580dbfc5cba46bbd9053785b",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -177.51326,
+        -32.45824
+      ]
+    },
+    "properties": {
+      "publicid": "1395233",
+      "eventtype": "earthquake",
+      "origintime": "1999-04-20T19:04:04.550Z",
+      "modificationtime": "2010-01-13T20:50:00.000Z",
+      "depth": 207.634,
+      "magnitude": 7.005,
+      "magnitudetype": "ML",
+      "evaluationmethod": "GROPE",
+      "evaluationstatus": "reviewed",
+      "evaluationmode": "manual",
+      "earthmodel": "nz1dr",
+      "usedphasecount": 22,
+      "usedstationcount": 19,
+      "minimumdistance": 6.583,
+      "azimuthalgap": 338,
+      "magnitudeuncertainty": 0.094,
+      "originerror": 0.36805,
+      "magnitudestationcount": 4
+    }
+  },
+  {
+    "_id": "580dbfc8cba46bbd9054afb0",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        165.31691,
+        -46.60614
+      ]
+    },
+    "properties": {
+      "publicid": "2326055",
+      "eventtype": "earthquake",
+      "origintime": "2004-11-22T20:26:32.095Z",
+      "modificationtime": "2010-01-13T22:53:00.000Z",
+      "depth": 12,
+      "depthtype": "operator assigned",
+      "magnitude": 7,
+      "magnitudetype": "Mw",
+      "evaluationmethod": "GROPE",
+      "evaluationstatus": "reviewed",
+      "evaluationmode": "manual",
+      "earthmodel": "nz1dr",
+      "usedphasecount": 22,
+      "usedstationcount": 16,
+      "minimumdistance": 1.561,
+      "azimuthalgap": 306,
+      "originerror": 0.20896
+    }
+  }
+]
