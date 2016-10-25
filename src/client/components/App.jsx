@@ -7,8 +7,8 @@ export default React.createClass({
   getInitialState () {
     return {
       quakes: [],
-      lat: 40,
-      long: 174,
+      lat: -36.863230,
+      long: 174.762689,
       limit: 10,
       error: ""
     }
@@ -30,6 +30,7 @@ export default React.createClass({
   render () {
     const quakes = this.state.quakes.map((elem) => {
       return <QuakeInfo key={elem._id}
+                    date={elem.properties.origintime}
                     coordinates={elem.geometry.coordinates}
                     depth={elem.properties.depth}
                     magnitude={elem.properties.magnitude} />
