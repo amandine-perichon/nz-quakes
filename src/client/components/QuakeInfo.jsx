@@ -1,6 +1,6 @@
 import React from 'react'
 
-import QuakeMap from './QuakeMap'
+import Map from './Map'
 
 export default React.createClass({
   props: {
@@ -19,7 +19,7 @@ export default React.createClass({
         </div>
         <div>
           Lat: {this.props.coordinates[1]}, Long: {this.props.coordinates[0]}
-          <QuakeMap
+          <Map
             containerElement={
               <div style={{width: 400, height: 400}} />
             }

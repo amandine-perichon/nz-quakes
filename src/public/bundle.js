@@ -21449,6 +21449,10 @@
 	
 	var _QuakeInfo2 = _interopRequireDefault(_QuakeInfo);
 	
+	var _Map = __webpack_require__(484);
+	
+	var _Map2 = _interopRequireDefault(_Map);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = _react2.default.createClass({
@@ -21465,16 +21469,28 @@
 	  componentDidMount: function componentDidMount() {
 	    var _this = this;
 	
+	    if ("geolocation" in navigator) {
+	      navigator.geolocation.getCurrentPosition(function (position) {
+	        console.log(position.coords.latitude, position.coords.longitude);
+	        _this.setState({ lat: position.coords.latitude, long: position.coords.longitude }, function () {
+	          _this.fetchNearbyQuakes();
+	        });
+	      });
+	    }
+	  },
+	  fetchNearbyQuakes: function fetchNearbyQuakes() {
+	    var _this2 = this;
+	
 	    fetch('/api/nearby?lat=' + this.state.lat + '&long=' + this.state.long + '&limit=' + this.state.limit).then(function (response) {
 	      if (response.ok) {
 	        return response.json();
 	      } else {
-	        _this.setState({ error: 'Sorry, there was a problem retrieving the quakes' });
+	        _this2.setState({ error: 'Sorry, there was a problem retrieving the quakes' });
 	      }
 	    }).then(function (json) {
-	      return _this.setState({ quakes: json });
+	      return _this2.setState({ quakes: json });
 	    }).catch(function (error) {
-	      _this.setState({ error: 'Sorry, there was a problem retrieving the quakes' });
+	      _this2.setState({ error: 'Sorry, there was a problem retrieving the quakes' });
 	    });
 	  },
 	  render: function render() {
@@ -21493,6 +21509,18 @@
 	        null,
 	        'Quakes'
 	      ),
+	      _react2.default.createElement(
+	        'h3',
+	        null,
+	        'Near ',
+	        this.state.lat,
+	        ', ',
+	        this.state.long
+	      ),
+	      _react2.default.createElement(_Map2.default, {
+	        containerElement: _react2.default.createElement('div', { style: { width: 400, height: 400 } }),
+	        mapElement: _react2.default.createElement('div', { style: { width: 400, height: 400 } }),
+	        coordinates: [this.state.long, this.state.lat] }),
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'error' },
@@ -21956,9 +21984,9 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _QuakeMap = __webpack_require__(175);
+	var _Map = __webpack_require__(484);
 	
-	var _QuakeMap2 = _interopRequireDefault(_QuakeMap);
+	var _Map2 = _interopRequireDefault(_Map);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -21992,7 +22020,7 @@
 	        this.props.coordinates[1],
 	        ', Long: ',
 	        this.props.coordinates[0],
-	        _react2.default.createElement(_QuakeMap2.default, {
+	        _react2.default.createElement(_Map2.default, {
 	          containerElement: _react2.default.createElement('div', { style: { width: 400, height: 400 } }),
 	          mapElement: _react2.default.createElement('div', { style: { width: 400, height: 400 } }),
 	          coordinates: this.props.coordinates })
@@ -22010,31 +22038,7 @@
 	});
 
 /***/ },
-/* 175 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactGoogleMaps = __webpack_require__(176);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = (0, _reactGoogleMaps.withGoogleMap)(function (props) {
-	  return _react2.default.createElement(_reactGoogleMaps.GoogleMap, {
-	    defaultZoom: 15,
-	    defaultCenter: { lat: props.coordinates[1], lng: props.coordinates[0] }
-	  });
-	});
-
-/***/ },
+/* 175 */,
 /* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -32987,6 +32991,37 @@
 	
 	module.exports = isIterateeCall;
 
+
+/***/ },
+/* 484 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactGoogleMaps = __webpack_require__(176);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = (0, _reactGoogleMaps.withGoogleMap)(function (props) {
+	  return _react2.default.createElement(
+	    _reactGoogleMaps.GoogleMap,
+	    {
+	      defaultZoom: 15,
+	      defaultCenter: { lat: props.coordinates[1], lng: props.coordinates[0] } },
+	    _react2.default.createElement(_reactGoogleMaps.Marker, {
+	      defaultPosition: { lat: props.coordinates[1], lng: props.coordinates[0] },
+	      title: "Earthquake"
+	    })
+	  );
+	});
 
 /***/ }
 /******/ ]);

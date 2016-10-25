@@ -2,6 +2,7 @@ import React from 'react'
 import 'whatwg-fetch'
 
 import QuakeInfo from './QuakeInfo'
+import Map from './Map'
 
 export default React.createClass({
   getInitialState () {
@@ -14,6 +15,16 @@ export default React.createClass({
     }
   },
   componentDidMount () {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        console.log(position.coords.latitude, position.coords.longitude)
+        this.setState({lat: position.coords.latitude, long: position.coords.longitude}, () => {
+          this.fetchNearbyQuakes()
+        })
+      })
+    }
+  },
+  fetchNearbyQuakes () {
     fetch(`/api/nearby?lat=${this.state.lat}&long=${this.state.long}&limit=${this.state.limit}`)
     .then((response) => {
       if(response.ok) {
@@ -37,6 +48,15 @@ export default React.createClass({
     })
     return  <div className="quake-list">
               <h1>Quakes</h1>
+              <h3>Near {this.state.lat}, {this.state.long}</h3>
+              <Map
+                containerElement={
+                  <div style={{width: 400, height: 400}} />
+                }
+                mapElement={
+                  <div style={{width: 400, height: 400}} />
+                }
+                coordinates={[this.state.long, this.state.lat]} />
               <div className="error">{this.state.error}</div>
               {quakes}
             </div>
