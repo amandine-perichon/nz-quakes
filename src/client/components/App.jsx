@@ -46,19 +46,21 @@ export default React.createClass({
                     depth={elem.properties.depth}
                     magnitude={elem.properties.magnitude} />
     })
-    return  <div className="quake-list">
+    return  <div className="container">
               <h1>Quakes</h1>
-              <h3>Near {this.state.lat}, {this.state.long}</h3>
-              <Map
-                containerElement={
-                  <div style={{width: 400, height: 400}} />
-                }
-                mapElement={
-                  <div style={{width: 400, height: 400}} />
-                }
-                coordinates={[this.state.long, this.state.lat]} />
+              <div className="current-location">
+                <h3>Near {this.state.lat}, {this.state.long}</h3>
+                <Map
+                  containerElement={
+                    <div style={{width: 400, height: 400}} />
+                  }
+                  mapElement={
+                    <div style={{width: 400, height: 400}} />
+                  }
+                  coordinates={[this.state.long, this.state.lat]} />
+              </div>
               <div className="error">{this.state.error}</div>
-              {quakes}
+              <div className="quake-list">{quakes}</div>
             </div>
   }
 })

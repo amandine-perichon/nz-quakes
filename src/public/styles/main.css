@@ -1,3 +1,10 @@
-* {
-  color: blue;
+.quake-info {
+  border: 2px solid grey;
+  padding: 2rem;
+  margin-top: 1rem;
+}
+
+.quake-info div,
+.current-location {
+  margin: auto;
 }

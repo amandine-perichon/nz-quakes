@@ -21449,7 +21449,7 @@
 	
 	var _QuakeInfo2 = _interopRequireDefault(_QuakeInfo);
 	
-	var _Map = __webpack_require__(484);
+	var _Map = __webpack_require__(175);
 	
 	var _Map2 = _interopRequireDefault(_Map);
 	
@@ -21503,30 +21503,38 @@
 	    });
 	    return _react2.default.createElement(
 	      'div',
-	      { className: 'quake-list' },
+	      { className: 'container' },
 	      _react2.default.createElement(
 	        'h1',
 	        null,
 	        'Quakes'
 	      ),
 	      _react2.default.createElement(
-	        'h3',
-	        null,
-	        'Near ',
-	        this.state.lat,
-	        ', ',
-	        this.state.long
+	        'div',
+	        { className: 'current-location' },
+	        _react2.default.createElement(
+	          'h3',
+	          null,
+	          'Near ',
+	          this.state.lat,
+	          ', ',
+	          this.state.long
+	        ),
+	        _react2.default.createElement(_Map2.default, {
+	          containerElement: _react2.default.createElement('div', { style: { width: 400, height: 400 } }),
+	          mapElement: _react2.default.createElement('div', { style: { width: 400, height: 400 } }),
+	          coordinates: [this.state.long, this.state.lat] })
 	      ),
-	      _react2.default.createElement(_Map2.default, {
-	        containerElement: _react2.default.createElement('div', { style: { width: 400, height: 400 } }),
-	        mapElement: _react2.default.createElement('div', { style: { width: 400, height: 400 } }),
-	        coordinates: [this.state.long, this.state.lat] }),
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'error' },
 	        this.state.error
 	      ),
-	      quakes
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'quake-list' },
+	        quakes
+	      )
 	    );
 	  }
 	});
@@ -21984,7 +21992,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Map = __webpack_require__(484);
+	var _Map = __webpack_require__(175);
 	
 	var _Map2 = _interopRequireDefault(_Map);
 	
@@ -22004,7 +22012,7 @@
 	    var lat = this.props.coordinates[1];
 	    return _react2.default.createElement(
 	      'div',
-	      { className: 'quake-info' },
+	      { className: 'quake-info row' },
 	      _react2.default.createElement(
 	        'div',
 	        null,
@@ -22038,7 +22046,37 @@
 	});
 
 /***/ },
-/* 175 */,
+/* 175 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactGoogleMaps = __webpack_require__(176);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = (0, _reactGoogleMaps.withGoogleMap)(function (props) {
+	  return _react2.default.createElement(
+	    _reactGoogleMaps.GoogleMap,
+	    {
+	      defaultZoom: 15,
+	      defaultCenter: { lat: props.coordinates[1], lng: props.coordinates[0] } },
+	    _react2.default.createElement(_reactGoogleMaps.Marker, {
+	      defaultPosition: { lat: props.coordinates[1], lng: props.coordinates[0] },
+	      title: "Earthquake"
+	    })
+	  );
+	});
+
+/***/ },
 /* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -32991,37 +33029,6 @@
 	
 	module.exports = isIterateeCall;
 
-
-/***/ },
-/* 484 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactGoogleMaps = __webpack_require__(176);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = (0, _reactGoogleMaps.withGoogleMap)(function (props) {
-	  return _react2.default.createElement(
-	    _reactGoogleMaps.GoogleMap,
-	    {
-	      defaultZoom: 15,
-	      defaultCenter: { lat: props.coordinates[1], lng: props.coordinates[0] } },
-	    _react2.default.createElement(_reactGoogleMaps.Marker, {
-	      defaultPosition: { lat: props.coordinates[1], lng: props.coordinates[0] },
-	      title: "Earthquake"
-	    })
-	  );
-	});
 
 /***/ }
 /******/ ]);
