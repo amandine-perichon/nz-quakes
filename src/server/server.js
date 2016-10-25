@@ -1,18 +1,18 @@
-var express = require('express')
+const express = require('express')
 
-var db = require('./db/db')
+const db = require('./db/db')
+const routes = require('./routes/routes')
 
-var app = express()
-var PORT = process.env.PORT || 3000
+const app = express()
+const PORT = process.env.PORT || 3000
 
 app.use(express.static(__dirname + './../public'))
+
+app.get('/api/nearby', routes.nearby)
 
 db.connect()
   .then(() =>
     app.listen(PORT, function () {
       console.log('Listening on port ' + PORT)
-      db.getNearbyQuakes(174.762629, -36.862719, 10)
-        .then((data) => console.log(data))
-        .catch((err) => console.log(err))
     }))
   .catch((err) => console.log('Could not connect to db: ', err))
