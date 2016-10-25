@@ -9,21 +9,22 @@ export default React.createClass({
       quakes: [],
       lat: 40,
       long: 174,
-      limit: 10
+      limit: 10,
+      error: ""
     }
   },
   componentDidMount () {
     fetch(`/api/nearby?lat=${this.state.lat}&long=${this.state.long}&limit=${this.state.limit}`)
-    .then(function(response) {
+    .then((response) => {
       if(response.ok) {
         return response.json()
       } else {
-        console.log('Network response was not ok.');
+        this.setState({error: 'Sorry, there was a problem retrieving the quakes'})
       }
     })
     .then((json) => this.setState({quakes: json}))
-    .catch(function(error) {
-      console.log('There has been a problem with your fetch operation: ' + error.message);
+    .catch((error) => {
+      this.setState({error: 'Sorry, there was a problem retrieving the quakes'})
     })
   },
   render () {
@@ -35,6 +36,7 @@ export default React.createClass({
     })
     return  <div className="quake-list">
               <h1>Quakes</h1>
+              <div className="error">{this.state.error}</div>
               {quakes}
             </div>
   }

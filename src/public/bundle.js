@@ -21458,7 +21458,8 @@
 	      quakes: [],
 	      lat: 40,
 	      long: 174,
-	      limit: 10
+	      limit: 10,
+	      error: ""
 	    };
 	  },
 	  componentDidMount: function componentDidMount() {
@@ -21468,12 +21469,12 @@
 	      if (response.ok) {
 	        return response.json();
 	      } else {
-	        console.log('Network response was not ok.');
+	        _this.setState({ error: 'Sorry, there was a problem retrieving the quakes' });
 	      }
 	    }).then(function (json) {
 	      return _this.setState({ quakes: json });
 	    }).catch(function (error) {
-	      console.log('There has been a problem with your fetch operation: ' + error.message);
+	      _this.setState({ error: 'Sorry, there was a problem retrieving the quakes' });
 	    });
 	  },
 	  render: function render() {
@@ -21490,6 +21491,11 @@
 	        'h1',
 	        null,
 	        'Quakes'
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'error' },
+	        this.state.error
 	      ),
 	      quakes
 	    );
