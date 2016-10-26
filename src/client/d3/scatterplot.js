@@ -314,7 +314,7 @@ var origin = {
 }
 
 var data = quakes.map((elem, i) => {
-  console.log((new Date(elem.properties.origintime)), distanceFromOrigin(origin, elem.geometry.coordinates), elem.properties.magnitude)
+  // console.log((new Date(elem.properties.origintime)), distanceFromOrigin(origin, elem.geometry.coordinates), elem.properties.magnitude)
   return [(new Date(elem.properties.origintime)).getTime(),
           distanceFromOrigin(origin, elem.geometry.coordinates),
           elem.properties.magnitude]

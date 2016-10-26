@@ -1,5 +1,6 @@
 import React from 'react'
 import 'whatwg-fetch'
+import Geosuggest from 'react-geosuggest'
 
 import QuakeInfo from './QuakeInfo'
 import Map from './Map'
@@ -9,8 +10,9 @@ export default React.createClass({
   getInitialState () {
     return {
       quakes: [],
-      lat: -36.849284,
-      long: 174.763763,
+      address: "Auckland Central, Auckland, New Zealand",
+      lat: -36.8484597,
+      long: 174.76333150000005,
       limit: 10,
       error: ""
     }
@@ -18,7 +20,6 @@ export default React.createClass({
   componentDidMount () {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
-        console.log(position.coords.latitude, position.coords.longitude)
         this.setState({lat: position.coords.latitude, long: position.coords.longitude}, () => {
           this.fetchNearbyQuakes()
         })
@@ -39,6 +40,11 @@ export default React.createClass({
       this.setState({error: 'Sorry, there was a problem retrieving the quakes'})
     })
   },
+  onPlaceSelect (suggestion) {
+    this.setState({lat: suggestion.location.lat,
+                  long: suggestion.location.lng,
+                  address: suggestion.label}, () => this.fetchNearbyQuakes())
+  },
   render () {
     const quakes = this.state.quakes.map((elem) => {
       return <QuakeInfo
@@ -53,7 +59,11 @@ export default React.createClass({
               <h1>Quakes</h1>
               <div className="current-location row">
                 <div className="six columns">
-                  <h3>Near {this.state.lat}, {this.state.long}</h3>
+                  <Geosuggest
+                    placeholder="Search earthquakes around..."
+                    country="nz"
+                    onSuggestSelect={this.onPlaceSelect} />
+                  <div>Near {this.state.address} ({this.state.lat}, {this.state.long})</div>
                   <Map
                     containerElement={
                       <div style={{width: 400, height: 400}} />
@@ -68,7 +78,7 @@ export default React.createClass({
                 </div>
               </div>
               <div className="error">{this.state.error}</div>
-              <div className="quake-list">{quakes}</div>
+              <div className="quake-list">{quakes[0]?quakes: <div className="loader">Loading...</div>}</div>
             </div>
   }
 })

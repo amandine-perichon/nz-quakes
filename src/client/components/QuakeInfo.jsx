@@ -16,7 +16,7 @@ export default React.createClass({
     return (
       <div className="quake-info row">
         <div>
-          Earthquake on {this.props.date.substr(0, 10)} at {this.props.date.substr(11, 5)}
+          Earthquake on {(new Date(this.props.date)).toString()}
         </div>
         <div>
           Lat: {this.props.coordinates[1]}, Long: {this.props.coordinates[0]}
