@@ -55,6 +55,9 @@ export default React.createClass({
                     depth={elem.properties.depth}
                     magnitude={elem.properties.magnitude} />
     })
+    const scatterplotKey = this.state.quakes.reduce((sum, elem) => {
+      return sum + elem.geometry.coordinates[0]}, 0)
+
     return  <div className="container">
               <h1>Quakes</h1>
               <div className="current-location row">
@@ -74,7 +77,7 @@ export default React.createClass({
                     coordinates={[this.state.long, this.state.lat]} />
                 </div>
                 <div className="six columns">
-                  <Scatterplot />
+                  <Scatterplot key={scatterplotKey} quakes={this.state.quakes}/>
                 </div>
               </div>
               <div className="error">{this.state.error}</div>
