@@ -5,6 +5,7 @@ import Map from './Map'
 export default React.createClass({
   props: {
     date: React.PropTypes.string.isRequired,
+    publicid: React.PropTypes.string.isRequired,
     coordinates: React.PropTypes.array.isRequired,
     depth: React.PropTypes.string.isRequired,
     magnitude: React.PropTypes.string.isRequired
@@ -29,7 +30,7 @@ export default React.createClass({
             coordinates={this.props.coordinates} />
         </div>
         <div>
-          Depth: {this.props.depth}, Magnitude: {this.props.magnitude}
+          Depth: {this.props.depth}, Magnitude: {this.props.magnitude}, publicid: {this.props.publicid}
         </div>
       </div>
     )

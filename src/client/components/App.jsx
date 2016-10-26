@@ -3,13 +3,14 @@ import 'whatwg-fetch'
 
 import QuakeInfo from './QuakeInfo'
 import Map from './Map'
+import Scatterplot from './Scatterplot'
 
 export default React.createClass({
   getInitialState () {
     return {
       quakes: [],
-      lat: -36.863230,
-      long: 174.762689,
+      lat: -36.849284,
+      long: 174.763763,
       limit: 10,
       error: ""
     }
@@ -40,7 +41,9 @@ export default React.createClass({
   },
   render () {
     const quakes = this.state.quakes.map((elem) => {
-      return <QuakeInfo key={elem._id}
+      return <QuakeInfo
+                    key={elem._id}
+                    publicid={elem.properties.publicid}
                     date={elem.properties.origintime}
                     coordinates={elem.geometry.coordinates}
                     depth={elem.properties.depth}
@@ -48,16 +51,21 @@ export default React.createClass({
     })
     return  <div className="container">
               <h1>Quakes</h1>
-              <div className="current-location">
-                <h3>Near {this.state.lat}, {this.state.long}</h3>
-                <Map
-                  containerElement={
-                    <div style={{width: 400, height: 400}} />
-                  }
-                  mapElement={
-                    <div style={{width: 400, height: 400}} />
-                  }
-                  coordinates={[this.state.long, this.state.lat]} />
+              <div className="current-location row">
+                <div className="six columns">
+                  <h3>Near {this.state.lat}, {this.state.long}</h3>
+                  <Map
+                    containerElement={
+                      <div style={{width: 400, height: 400}} />
+                    }
+                    mapElement={
+                      <div style={{width: 400, height: 400}} />
+                    }
+                    coordinates={[this.state.long, this.state.lat]} />
+                </div>
+                <div className="six columns">
+                  <Scatterplot />
+                </div>
               </div>
               <div className="error">{this.state.error}</div>
               <div className="quake-list">{quakes}</div>
