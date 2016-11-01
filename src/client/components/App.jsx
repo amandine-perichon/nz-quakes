@@ -44,6 +44,7 @@ export default React.createClass({
     this.setState({lat: suggestion.location.lat,
                   long: suggestion.location.lng,
                   address: suggestion.label}, () => this.fetchNearbyQuakes())
+    this.geosuggest.clear()
   },
   render () {
     const quakes = this.state.quakes.map((elem) => {
@@ -65,7 +66,8 @@ export default React.createClass({
                   <Geosuggest
                     placeholder="Search earthquakes around..."
                     country="nz"
-                    onSuggestSelect={this.onPlaceSelect} />
+                    onSuggestSelect={this.onPlaceSelect}
+                    ref={(geosuggest) => this.geosuggest = geosuggest} />
                   <div>Near {this.state.address} ({this.state.lat}, {this.state.long})</div>
                   <Map
                     containerElement={

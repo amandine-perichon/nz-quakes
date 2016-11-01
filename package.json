@@ -1,7 +1,7 @@
 {
-  "name": "react-express-boilerplate",
+  "name": "nz-quakes",
   "version": "1.0.0",
-  "description": "Boilerplate for a React Express app",
+  "description": "NZ quakes with React and d3",
   "main": "index.js",
   "scripts": {
     "build": "webpack --watch",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/amandine-perichon/react-express-boilerplate.git"
+    "url": "git+https://github.com/amandine-perichon/nz-quakes.git"
   },
   "keywords": [
     "boilerplate"
@@ -19,9 +19,9 @@
   "author": "Amandine Perichon",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/amandine-perichon/react-express-boilerplate/issues"
+    "url": "https://github.com/amandine-perichon/nz-quakes/issues"
   },
-  "homepage": "https://github.com/amandine-perichon/react-express-boilerplate#readme",
+  "homepage": "https://github.com/amandine-perichon/nz-quakes#readme",
   "babel": {
     "presets": [
       "es2015",

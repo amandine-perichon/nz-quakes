@@ -21,7 +21,6 @@ export default class Scatterplot extends React.Component {
   render() {
     let plot = null
     if(this.props.quakes[0] !== undefined) {
-      console.log(this.props.quakes)
       plot = <RD3Component data={this.state.d3} />
     }
     return (

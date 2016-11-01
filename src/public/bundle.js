@@ -21509,8 +21509,11 @@
 	      address: suggestion.label }, function () {
 	      return _this3.fetchNearbyQuakes();
 	    });
+	    this.geosuggest.clear();
 	  },
 	  render: function render() {
+	    var _this4 = this;
+	
 	    var quakes = this.state.quakes.map(function (elem) {
 	      return _react2.default.createElement(_QuakeInfo2.default, {
 	        key: elem._id,
@@ -21541,7 +21544,10 @@
 	          _react2.default.createElement(_reactGeosuggest2.default, {
 	            placeholder: 'Search earthquakes around...',
 	            country: 'nz',
-	            onSuggestSelect: this.onPlaceSelect }),
+	            onSuggestSelect: this.onPlaceSelect,
+	            ref: function ref(geosuggest) {
+	              return _this4.geosuggest = geosuggest;
+	            } }),
 	          _react2.default.createElement(
 	            'div',
 	            null,
@@ -34758,7 +34764,6 @@
 	    value: function render() {
 	      var plot = null;
 	      if (this.props.quakes[0] !== undefined) {
-	        console.log(this.props.quakes);
 	        plot = _react2.default.createElement(RD3Component, { data: this.state.d3 });
 	      }
 	      return _react2.default.createElement(
